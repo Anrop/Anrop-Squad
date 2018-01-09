@@ -1,0 +1,29 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/go-sql-driver/mysql",
+			"repository": "https://github.com/go-sql-driver/mysql",
+			"revision": "9181e3a86a19bacd63e68d43ae8b7b36320d8092",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/gorilla/handlers",
+			"repository": "https://github.com/gorilla/handlers",
+			"revision": "90663712d74cb411cbef281bc1e08c19d1a76145",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/gorilla/mux",
+			"repository": "https://github.com/gorilla/mux",
+			"revision": "5bbbb5b2b5729b132181cc7f4aa3b3c973e9a0ed",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/joho/godotenv",
+			"repository": "https://github.com/joho/godotenv",
+			"revision": "06e67b5ef3bef2e1a8696e1c04b94b44cbc5d9a5",
+			"branch": "master"
+		}
+	]
+}
