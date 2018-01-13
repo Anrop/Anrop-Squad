@@ -5,6 +5,7 @@ type Squad struct {
 	Nick    string   `xml:"nick,attr"`
 	Email   string   `xml:"email"`
 	Name    string   `xml:"name"`
+	Picture string   `xml:"picture"`
 	Title   string   `xml:"title"`
 	Web     string   `xml:"web"`
 	Members []Member `xml:"member"`
