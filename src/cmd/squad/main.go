@@ -30,7 +30,9 @@ func main() {
 
 	r := mux.NewRouter()
 	r.HandleFunc("/arma2.json", api.Arma2JsonHandler)
+	r.HandleFunc("/arma2.xml", api.Arma2XmlHandler)
 	r.HandleFunc("/arma3.json", api.Arma3JsonHandler)
+	r.HandleFunc("/arma3.xml", api.Arma3XmlHandler)
 
 	var handler http.Handler
 	handler = handlers.CORS()(r)
