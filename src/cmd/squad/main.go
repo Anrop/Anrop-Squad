@@ -6,7 +6,9 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"static"
 
+	"github.com/elazarl/go-bindata-assetfs"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	_ "github.com/joho/godotenv/autoload"
@@ -33,6 +35,12 @@ func main() {
 	r.HandleFunc("/arma2.xml", api.Arma2XmlHandler)
 	r.HandleFunc("/arma3.json", api.Arma3JsonHandler)
 	r.HandleFunc("/arma3.xml", api.Arma3XmlHandler)
+	r.PathPrefix("/").Handler(http.FileServer(&assetfs.AssetFS{
+		Asset:     static.Asset,
+		AssetDir:  static.AssetDir,
+		AssetInfo: static.AssetInfo,
+		Prefix:    "static",
+	}))
 
 	var handler http.Handler
 	handler = handlers.CORS()(r)

@@ -8,6 +8,8 @@ import (
 	"os"
 )
 
+var doctype = "<!DOCTYPE squad SYSTEM \"squad.dtd\">\n"
+
 func Arma2XmlHandler(w http.ResponseWriter, r *http.Request) {
 	users, err := db.GetArma2Users()
 	internalXmlHandler(w, r, *users, err)
@@ -38,6 +40,7 @@ func internalXmlHandler(w http.ResponseWriter, r *http.Request, users []db.User,
 		Nick:    "Anrop",
 		Name:    "Anrop",
 		Email:   "admin@anrop.se",
+		Picture: "squad.paa",
 		Title:   "Anrop",
 		Web:     "https://www.anrop.se",
 		Members: members,
@@ -51,5 +54,5 @@ func internalXmlHandler(w http.ResponseWriter, r *http.Request, users []db.User,
 	}
 
 	w.Header().Set("Content-Type", "application/xml")
-	w.Write(output)
+	w.Write([]byte(xml.Header + doctype + string(output)))
 }
