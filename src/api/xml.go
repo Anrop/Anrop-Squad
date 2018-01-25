@@ -10,6 +10,11 @@ import (
 
 var doctype = "<!DOCTYPE squad SYSTEM \"squad.dtd\">\n"
 
+func Arma1XmlHandler(w http.ResponseWriter, r *http.Request) {
+	users, err := db.GetArma1Users()
+	internalXmlHandler(w, r, *users, err)
+}
+
 func Arma2XmlHandler(w http.ResponseWriter, r *http.Request) {
 	users, err := db.GetArma2Users()
 	internalXmlHandler(w, r, *users, err)
@@ -17,6 +22,11 @@ func Arma2XmlHandler(w http.ResponseWriter, r *http.Request) {
 
 func Arma3XmlHandler(w http.ResponseWriter, r *http.Request) {
 	users, err := db.GetArma3Users()
+	internalXmlHandler(w, r, *users, err)
+}
+
+func OfpXmlHandler(w http.ResponseWriter, r *http.Request) {
+	users, err := db.GetOfpUsers()
 	internalXmlHandler(w, r, *users, err)
 }
 
