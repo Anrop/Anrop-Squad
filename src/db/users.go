@@ -5,12 +5,20 @@ import (
 	"os"
 )
 
+func GetArma1Users() (*[]User, error) {
+	return internalGetUsers("user_arma1_id", "user_arma1_nick")
+}
+
 func GetArma2Users() (*[]User, error) {
 	return internalGetUsers("user_arma2_id", "user_arma2_nick")
 }
 
 func GetArma3Users() (*[]User, error) {
 	return internalGetUsers("user_arma3_id", "user_arma3_nick")
+}
+
+func GetOfpUsers() (*[]User, error) {
+	return internalGetUsers("user_ofp_id", "user_ofp_nick")
 }
 
 func internalGetUsers(idField string, nickField string) (*[]User, error) {

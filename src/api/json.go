@@ -8,6 +8,11 @@ import (
 	"os"
 )
 
+func Arma1JsonHandler(w http.ResponseWriter, r *http.Request) {
+	users, err := db.GetArma1Users()
+	internalJsonHandler(w, r, users, err)
+}
+
 func Arma2JsonHandler(w http.ResponseWriter, r *http.Request) {
 	users, err := db.GetArma2Users()
 	internalJsonHandler(w, r, users, err)
@@ -15,6 +20,11 @@ func Arma2JsonHandler(w http.ResponseWriter, r *http.Request) {
 
 func Arma3JsonHandler(w http.ResponseWriter, r *http.Request) {
 	users, err := db.GetArma3Users()
+	internalJsonHandler(w, r, users, err)
+}
+
+func OfpJsonHandler(w http.ResponseWriter, r *http.Request) {
+	users, err := db.GetOfpUsers()
 	internalJsonHandler(w, r, users, err)
 }
 
