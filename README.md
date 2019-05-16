@@ -34,7 +34,7 @@ Environment variables can be specified in `.env` file and will be autoloaded.
 
 ### /arma1.json
 
-Returns Arma 2 squad members as JSON
+Returns Arma 1 squad members as JSON
 
 ### /arma2.json
 
@@ -46,4 +46,4 @@ Returns Arma 3 squad members as JSON
 
 ### /ofp.json
 
-Returns Arma 3 squad members as JSON
+Returns OFP squad members as JSON
