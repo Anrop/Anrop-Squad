@@ -58,5 +58,7 @@ func internalGetUsers(idField string, nickField string) (*[]User, error) {
 		}
 	}
 
+	rows.Close()
+
 	return &users, nil
 }
