@@ -4,13 +4,13 @@ Returns squad members on Anrop for Arma games.
 
 ## Requirements
 
-Code is written in [Go](https://golang.org/) and uses [gb](https://getgb.io/) to compile.
+Code is written in [Go](https://golang.org/) and uses [Go modules](https://github.com/golang/go/wiki/Modules) for dependency management.
 
 ## How To Use
 
-Compile the sources with `gb build`.
+Use `go build` to download all dependencies and compile the sources.
 
-Start the API with the `squad` binary in the `bin` folder.
+Start the API with the `Anrop-Squad` binary.
 Server will be available at `$PORT`.
 
 ## Environment Variables
