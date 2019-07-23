@@ -1,5 +1,6 @@
 package api
 
+// Squad model
 type Squad struct {
 	XMLName string   `xml:"squad"`
 	Nick    string   `xml:"nick,attr"`
@@ -11,6 +12,7 @@ type Squad struct {
 	Members []Member `xml:"member"`
 }
 
+// Member model
 type Member struct {
 	ID   string `xml:"id,attr"`
 	Nick string `xml:"nick,attr"`

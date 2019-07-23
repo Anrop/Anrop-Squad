@@ -10,27 +10,31 @@ import (
 
 var doctype = "<!DOCTYPE squad SYSTEM \"squad.dtd\">\n"
 
-func Arma1XmlHandler(w http.ResponseWriter, r *http.Request) {
+// Arma1XMLHandler handles requests for Arma1 as XML
+func Arma1XMLHandler(w http.ResponseWriter, r *http.Request) {
 	users, err := db.GetArma1Users()
-	internalXmlHandler(w, r, *users, err)
+	internalXMLHandler(w, r, *users, err)
 }
 
-func Arma2XmlHandler(w http.ResponseWriter, r *http.Request) {
+// Arma2XMLHandler handles requests for Arma2 as XML
+func Arma2XMLHandler(w http.ResponseWriter, r *http.Request) {
 	users, err := db.GetArma2Users()
-	internalXmlHandler(w, r, *users, err)
+	internalXMLHandler(w, r, *users, err)
 }
 
-func Arma3XmlHandler(w http.ResponseWriter, r *http.Request) {
+// Arma3XMLHandler handles requests for Arma3 as XML
+func Arma3XMLHandler(w http.ResponseWriter, r *http.Request) {
 	users, err := db.GetArma3Users()
-	internalXmlHandler(w, r, *users, err)
+	internalXMLHandler(w, r, *users, err)
 }
 
-func OfpXmlHandler(w http.ResponseWriter, r *http.Request) {
+// OfpXMLHandler handles requests for OFP as XML
+func OfpXMLHandler(w http.ResponseWriter, r *http.Request) {
 	users, err := db.GetOfpUsers()
-	internalXmlHandler(w, r, *users, err)
+	internalXMLHandler(w, r, *users, err)
 }
 
-func internalXmlHandler(w http.ResponseWriter, r *http.Request, users []db.User, err error) {
+func internalXMLHandler(w http.ResponseWriter, r *http.Request, users []db.User, err error) {
 	if err != nil {
 		http.Error(w, "", http.StatusInternalServerError)
 		return
