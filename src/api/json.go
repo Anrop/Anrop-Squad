@@ -8,27 +8,31 @@ import (
 	"os"
 )
 
-func Arma1JsonHandler(w http.ResponseWriter, r *http.Request) {
+// Arma1JSONHandler handles request for Arma1 as JSON
+func Arma1JSONHandler(w http.ResponseWriter, r *http.Request) {
 	users, err := db.GetArma1Users()
-	internalJsonHandler(w, r, users, err)
+	internalJSONHandler(w, r, users, err)
 }
 
-func Arma2JsonHandler(w http.ResponseWriter, r *http.Request) {
+// Arma2JSONHandler handles request for Arma2 as JSON
+func Arma2JSONHandler(w http.ResponseWriter, r *http.Request) {
 	users, err := db.GetArma2Users()
-	internalJsonHandler(w, r, users, err)
+	internalJSONHandler(w, r, users, err)
 }
 
-func Arma3JsonHandler(w http.ResponseWriter, r *http.Request) {
+// Arma3JSONHandler handles request for Arma3 as JSON
+func Arma3JSONHandler(w http.ResponseWriter, r *http.Request) {
 	users, err := db.GetArma3Users()
-	internalJsonHandler(w, r, users, err)
+	internalJSONHandler(w, r, users, err)
 }
 
-func OfpJsonHandler(w http.ResponseWriter, r *http.Request) {
+// OfpJSONHandler handles request for OFP as JSON
+func OfpJSONHandler(w http.ResponseWriter, r *http.Request) {
 	users, err := db.GetOfpUsers()
-	internalJsonHandler(w, r, users, err)
+	internalJSONHandler(w, r, users, err)
 }
 
-func internalJsonHandler(w http.ResponseWriter, r *http.Request, users *[]db.User, err error) {
+func internalJSONHandler(w http.ResponseWriter, r *http.Request, users *[]db.User, err error) {
 	if err != nil {
 		http.Error(w, "", http.StatusInternalServerError)
 		return

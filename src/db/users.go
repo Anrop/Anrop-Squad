@@ -5,18 +5,22 @@ import (
 	"os"
 )
 
+// GetArma1Users returns a llist of users that have Arma1 nick set
 func GetArma1Users() (*[]User, error) {
 	return internalGetUsers("user_arma1_id", "user_arma1_nick")
 }
 
+// GetArma2Users returns a llist of users that have Arma2 nick set
 func GetArma2Users() (*[]User, error) {
 	return internalGetUsers("user_arma2_id", "user_arma2_nick")
 }
 
+// GetArma3Users returns a llist of users that have Arma3 nick set
 func GetArma3Users() (*[]User, error) {
 	return internalGetUsers("user_arma3_id", "user_arma3_nick")
 }
 
+// GetOfpUsers returns a llist of users that have Ofp nick set
 func GetOfpUsers() (*[]User, error) {
 	return internalGetUsers("user_ofp_id", "user_ofp_nick")
 }

@@ -31,14 +31,14 @@ func main() {
 	}
 
 	r := mux.NewRouter()
-	r.HandleFunc("/arma1.json", api.Arma1JsonHandler)
-	r.HandleFunc("/arma1.xml", api.Arma1XmlHandler)
-	r.HandleFunc("/arma2.json", api.Arma2JsonHandler)
-	r.HandleFunc("/arma2.xml", api.Arma2XmlHandler)
-	r.HandleFunc("/arma3.json", api.Arma3JsonHandler)
-	r.HandleFunc("/arma3.xml", api.Arma3XmlHandler)
-	r.HandleFunc("/ofp.json", api.OfpJsonHandler)
-	r.HandleFunc("/ofp.xml", api.OfpXmlHandler)
+	r.HandleFunc("/arma1.json", api.Arma1JSONHandler)
+	r.HandleFunc("/arma1.xml", api.Arma1XMLHandler)
+	r.HandleFunc("/arma2.json", api.Arma2JSONHandler)
+	r.HandleFunc("/arma2.xml", api.Arma2XMLHandler)
+	r.HandleFunc("/arma3.json", api.Arma3JSONHandler)
+	r.HandleFunc("/arma3.xml", api.Arma3XMLHandler)
+	r.HandleFunc("/ofp.json", api.OfpJSONHandler)
+	r.HandleFunc("/ofp.xml", api.OfpXMLHandler)
 	r.PathPrefix("/").Handler(http.FileServer(&assetfs.AssetFS{
 		Asset:     static.Asset,
 		AssetDir:  static.AssetDir,
