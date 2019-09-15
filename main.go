@@ -1,12 +1,12 @@
 package main
 
 import (
-	"api"
-	"db"
 	"fmt"
 	"net/http"
 	"os"
 
+	"github.com/Anrop/Anrop-Squad/api"
+	"github.com/Anrop/Anrop-Squad/db"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	_ "github.com/joho/godotenv/autoload"
