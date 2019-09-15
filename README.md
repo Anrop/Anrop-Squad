@@ -13,14 +13,6 @@ Compile the sources with `gb build`.
 Start the API with the `squad` binary in the `bin` folder.
 Server will be available at `$PORT`.
 
-### Static Data
-
-Static data is embedded using [go-bindata](https://github.com/jteeuwen/go-bindata)
-
-Install `go-bindata` with `go get -u github.com/jteeuwen/go-bindata/...`
-
-Regenerate static assets using `go-bindata -o src/static/static.go -pkg static static/`
-
 ## Environment Variables
 
 Environment variables can be specified in `.env` file and will be autoloaded.
