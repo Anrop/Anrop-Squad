@@ -9,4 +9,5 @@ RUN gb build all
 FROM alpine:latest
 WORKDIR /app/
 COPY --from=builder /build/bin/squad /app/squad
+COPY static/ /app/static/
 CMD /app/squad
