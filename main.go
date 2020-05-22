@@ -7,6 +7,7 @@ import (
 
 	"github.com/Anrop/Anrop-Squad/api"
 	"github.com/Anrop/Anrop-Squad/db"
+	"github.com/Anrop/Anrop-Squad/newrelic"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	_ "github.com/joho/godotenv/autoload"
@@ -15,6 +16,7 @@ import (
 func main() {
 	port := os.Getenv("PORT")
 	databaseURL := os.Getenv("DATABASE_URL")
+	newRelicLicenseKey := os.Getenv("NEW_RELIC_LICENSE_KEY")
 
 	if port == "" {
 		port = "8080"
@@ -29,6 +31,11 @@ func main() {
 	}
 
 	r := mux.NewRouter()
+
+	if newRelicLicenseKey != "" {
+		newrelic.SetupNewRelic(newRelicLicenseKey, r)
+	}
+
 	r.HandleFunc("/arma1.json", api.Arma1JSONHandler)
 	r.HandleFunc("/arma1.xml", api.Arma1XMLHandler)
 	r.HandleFunc("/arma2.json", api.Arma2JSONHandler)
