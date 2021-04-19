@@ -1,18 +1,16 @@
 language: go
 
 go:
-  - 1.14
+  - 1.16
 
 matrix:
   fast_finish: true
-env:
-  global:
-    GO111MODULE=on
 
 install:
   - go get golang.org/x/lint/golint
 
 script:
+  - go mod download
   - go build
   - golint -set_exit_status ./...
   - diff -u <(echo -n) <(gofmt -d .)
