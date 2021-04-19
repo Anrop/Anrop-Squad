@@ -12,5 +12,6 @@ install:
 script:
   - go mod download
   - go build
+  - go test ./...
   - golint -set_exit_status ./...
   - diff -u <(echo -n) <(gofmt -d .)
