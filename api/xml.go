@@ -4,41 +4,50 @@ import (
 	"encoding/xml"
 	"fmt"
 	"github.com/Anrop/Anrop-Squad/db"
+	"github.com/Anrop/Anrop-Squad/static"
 	"net/http"
 	"os"
 )
 
-var doctype = "<!DOCTYPE squad SYSTEM \"squad.dtd\">\n"
-
 // Arma1XMLHandler handles requests for Arma1 as XML
-func Arma1XMLHandler(w http.ResponseWriter, r *http.Request) {
-	users, err := db.GetArma1Users()
-	internalXMLHandler(w, r, *users, err)
+func Arma1XMLHandler(statics *static.Statics) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		users, err := db.GetArma1Users()
+		internalXMLHandler(w, r, statics, *users, err)
+	}
 }
 
 // Arma2XMLHandler handles requests for Arma2 as XML
-func Arma2XMLHandler(w http.ResponseWriter, r *http.Request) {
-	users, err := db.GetArma2Users()
-	internalXMLHandler(w, r, *users, err)
+func Arma2XMLHandler(statics *static.Statics) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		users, err := db.GetArma2Users()
+		internalXMLHandler(w, r, statics, *users, err)
+	}
 }
 
 // Arma3XMLHandler handles requests for Arma3 as XML
-func Arma3XMLHandler(w http.ResponseWriter, r *http.Request) {
-	users, err := db.GetArma3Users()
-	internalXMLHandler(w, r, *users, err)
+func Arma3XMLHandler(statics *static.Statics) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		users, err := db.GetArma3Users()
+		internalXMLHandler(w, r, statics, *users, err)
+	}
 }
 
 // OfpXMLHandler handles requests for OFP as XML
-func OfpXMLHandler(w http.ResponseWriter, r *http.Request) {
-	users, err := db.GetOfpUsers()
-	internalXMLHandler(w, r, *users, err)
+func OfpXMLHandler(statics *static.Statics) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		users, err := db.GetOfpUsers()
+		internalXMLHandler(w, r, statics, *users, err)
+	}
 }
 
-func internalXMLHandler(w http.ResponseWriter, r *http.Request, users []db.User, err error) {
+func internalXMLHandler(w http.ResponseWriter, r *http.Request, statics *static.Statics, users []db.User, err error) {
 	if err != nil {
 		http.Error(w, "", http.StatusInternalServerError)
 		return
 	}
+
+	doctype := fmt.Sprintf("<!DOCTYPE squad SYSTEM \"%s\">\n", statics.DTDFile)
 
 	members := make([]Member, len(users))
 	for i := range users {
@@ -54,7 +63,7 @@ func internalXMLHandler(w http.ResponseWriter, r *http.Request, users []db.User,
 		Nick:    "Anrop",
 		Name:    "Anrop",
 		Email:   "admin@anrop.se",
-		Picture: "squad.paa",
+		Picture: statics.PAAFile,
 		Title:   "Anrop",
 		Web:     "https://www.anrop.se",
 		Members: members,

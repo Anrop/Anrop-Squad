@@ -7,5 +7,4 @@ RUN go build
 FROM alpine:latest
 WORKDIR /app/
 COPY --from=builder /build/Anrop-Squad /app/squad
-COPY static/ /app/static/
 CMD /app/squad
